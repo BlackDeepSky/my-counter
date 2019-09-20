@@ -1,0 +1,73 @@
+.App {
+  height: 100vh;
+  background-color: #6a89cc;
+}
+.mainContainer{
+  width: 40vw;
+  height: auto;
+  border: 3px solid forestgreen;
+  background-color: #00b894;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  1fr 200px;
+  grid-template-areas:
+          "display display"
+            "button button";
+}
+.mainDisplay{
+  padding: 30px;
+  margin: 80px;
+  align-items: center;
+  justify-items: center;
+  grid-area: display;
+  font-size: 85px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: black;
+}
+.display {
+  display: grid;
+  border: 3px solid blue;
+  color: black;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  border-radius: 20px;
+  background-color: #81ecec;
+}
+.mainButtons{
+  grid-area: button;
+  display: grid;
+  justify-items: center;
+  height: auto;
+  width: auto;
+  grid-gap: 50px;
+}
+.buttons button{
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 45px;
+  font-size: 40px;
+  outline: none;
+  box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
+  font-weight: bold;
+  border-color: #74b9ff;
+  text-decoration: none;
+}
+
+.maxNumberDisplay{
+  display: grid;
+  border: 3px solid blue;
+  color: red;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
