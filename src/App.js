@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Display from './Display';
 import Buttons from './Buttons';
+import Button from './Button'
+import DisplaySet from './DisplaySet';
 
 class App extends React.Component {
 
@@ -11,6 +13,19 @@ class App extends React.Component {
       numberReset: 0
 };
 
+
+  getCurrentValue = (e) => {
+      let newNumberActive = parseInt(e.currentTarget.value);
+      this.setState({
+          numberActive: newNumberActive
+      })
+  };
+    getMaxValue = (e) => {
+        let newMaxNumber = parseInt(e.currentTarget.value);
+        this.setState({
+            maxNumber: newMaxNumber
+        })
+    };
 
  addCounter = () => {
 this.setState(nextCounter =>{
@@ -36,14 +51,22 @@ this.setState(
     render = () => {
         return (
             <div className="App">
-                <div className="mainContainer">
-
-                   <Display numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
-
+                <div className="mainSetContainer">
+                    <DisplaySet getCurrentValue={this.getCurrentValue} getMaxValue={this.getMaxValue}
+                                numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
                     <div className="mainButtons">
-                    <Buttons addCounter={this.addCounter} restCounter={this.restCounter}/>
+                        <Button numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
                     </div>
                 </div>
+
+                <div className="mainContainer">
+                    <Display numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
+                    <div className="mainButtons">
+                        <Buttons addCounter={this.addCounter} restCounter={this.restCounter}
+                                 numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
+                    </div>
+                </div>
+
             </div>
         );
     }
