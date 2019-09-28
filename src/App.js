@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Display from './Display';
 import Buttons from './Buttons';
-import Button from './Button'
 import DisplaySet from './DisplaySet';
 
 class App extends React.Component {
@@ -13,19 +12,25 @@ class App extends React.Component {
       numberReset: 0
 };
 
-
-  getCurrentValue = (e) => {
-      let newNumberActive = parseInt(e.currentTarget.value);
-      this.setState({
-          numberActive: newNumberActive
-      })
-  };
-    getMaxValue = (e) => {
-        let newMaxNumber = parseInt(e.currentTarget.value);
+    setCurrentValue = (startValue, maxValue) => {
         this.setState({
-            maxNumber: newMaxNumber
+            numberActive: startValue,
+            maxNumber: maxValue
         })
     };
+
+  // getCurrentValue = (e) => {
+  //     let newNumberActive = parseInt(e.currentTarget.value);
+  //     this.setState({
+  //         numberActive: newNumberActive
+  //     })
+  // };
+  //   getMaxValue = (e) => {
+  //       let newMaxNumber = parseInt(e.currentTarget.value);
+  //       this.setState({
+  //           maxNumber: newMaxNumber
+  //       })
+  //   };
 
  addCounter = () => {
 this.setState(nextCounter =>{
@@ -52,11 +57,7 @@ this.setState(
         return (
             <div className="App">
                 <div className="mainSetContainer">
-                    <DisplaySet getCurrentValue={this.getCurrentValue} getMaxValue={this.getMaxValue}
-                                numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
-                    <div className="mainButtons">
-                        <Button numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
-                    </div>
+                    <DisplaySet  numberActive={this.state.numberActive} maxNumber={this.state.maxNumber} setCurrentValue={this.setCurrentValue}/>
                 </div>
 
                 <div className="mainContainer">
