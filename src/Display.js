@@ -4,7 +4,7 @@ import './App.css';
 class Display extends React.Component {
     render = () => {
 
-        let maxSize = this.props.numberActive === this.props.maxNumber ? "maxNumberDisplay": "display";
+        let maxSize = this.props.numberActive === this.props.maxNumber ? "maxNumberDisplay" : "display";
 
         return (
             <div className="mainDisplay">

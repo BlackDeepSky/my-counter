@@ -6,59 +6,68 @@ import DisplaySet from './DisplaySet';
 
 class App extends React.Component {
 
-  state ={
-    numberActive: 0,
-      maxNumber: 5,
-      numberReset: 0
-};
+    componentDidMount() {
+        this.restoreState()
+    }
+
+    state = {
+        numberActive: null,
+        maxNumber: null,
+        numberReset: 0
+    };
+
+    saveState = () => {
+let stateAsString = JSON.stringify(this.state);
+localStorage.setItem("my-state", stateAsString)
+    };
+
+    restoreState = () => {
+      let state = {
+          numberActive: null,
+          maxNumber: null,
+          numberReset: 0
+      };
+      let stateAsString = localStorage.getItem("my-state");
+        if (stateAsString !== null) {
+            state = JSON.parse(stateAsString);
+        }
+      this.setState(state);
+    };
 
     setCurrentValue = (startValue, maxValue) => {
         this.setState({
             numberActive: startValue,
             maxNumber: maxValue
-        })
+        },this.saveState);
     };
 
-  // getCurrentValue = (e) => {
-  //     let newNumberActive = parseInt(e.currentTarget.value);
-  //     this.setState({
-  //         numberActive: newNumberActive
-  //     })
-  // };
-  //   getMaxValue = (e) => {
-  //       let newMaxNumber = parseInt(e.currentTarget.value);
-  //       this.setState({
-  //           maxNumber: newMaxNumber
-  //       })
-  //   };
+    addCounter = () => {
+        this.setState(nextCounter => {
+                if (this.state.numberActive === this.state.maxNumber) {
+                    return {
+                        numberActive: nextCounter.maxNumber
+                    }
+                } else {
+                    return {
+                        numberActive: nextCounter.numberActive + 1
+                    }
+                }
+            }
+        )
+    };
 
- addCounter = () => {
-this.setState(nextCounter =>{
-    if(this.state.numberActive===this.state.maxNumber){
-        return{
-            numberActive: nextCounter.maxNumber
-        }
-    }
-    else {
-        return {
-            numberActive: nextCounter.numberActive + 1
-        }
-    }
-}
-)
- };
-
- restCounter = () =>{
-this.setState(
-    {numberActive: this.state.numberReset}
-)
- };
+    restCounter = () => {
+        this.setState(
+            {numberActive: this.state.numberReset}
+        )
+    };
     render = () => {
         return (
             <div className="App">
-                <div className="mainSetContainer">
-                    <DisplaySet  numberActive={this.state.numberActive} maxNumber={this.state.maxNumber} setCurrentValue={this.setCurrentValue}/>
-                </div>
+
+                    <DisplaySet numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}
+                                setCurrentValue={this.setCurrentValue}/>
+
 
                 <div className="mainContainer">
                     <Display numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>

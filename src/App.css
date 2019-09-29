@@ -1,103 +1,109 @@
 .App {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  align-items: center;
-  height: 100vh;
-  background-color: #6a89cc;
-}
-.mainContainer{
-  margin: 120px;
-  height: 60vh;
-  border: 3px solid forestgreen;
-  background-color: #00b894;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 200px;
-  grid-template-areas:
-          "display display"
-            "button button";
-}
-.mainSetContainer{
-  margin: 120px;
-  height: 60vh;
-  border: 3px solid forestgreen;
-  background-color: #00b894;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows:  1fr 200px;
-  grid-template-areas:
-          "display display"
-          "button button";
-}
-.mainDisplay{
-  padding: 30px;
-  margin: 50px;
-  grid-area: display;
-  font-size: 85px;
-  text-align: center;
-  border-radius: 20px;
-  background-color: black;
-}
-.mainSetDisplay{
-  margin: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  font-size: 30px;
-  border: 10px solid black;
-}
-.mainSetDisplayInput {
-  height: 25px;
-  text-align: center;
-}
-.mainSetDisplayDisabledInput {
-  height: 25px;
-  text-align: center;
-  border: 3px solid red;
-}
-.display {
-  display: grid;
-  border: 3px solid blue;
-  color: black;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-items: center;
-  border-radius: 20px;
-  background-color: #81ecec;
-}
-.mainButtons{
-  grid-area: button;
-  display: grid;
-  justify-items: center;
-  height: auto;
-  width: auto;
-  grid-gap: 50px;
-}
-.buttons button{
-  width: 200px;
-  height: 100px;
-  margin: 20px;
-  border-radius: 45px;
-  font-size: 40px;
-  outline: none;
-  box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #800;
-  font-weight: bold;
-  border-color: #74b9ff;
-  text-decoration: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://st3.depositphotos.com/1641224/15330/i/1600/depositphotos_153304044-stock-photo-grunge-black-wall-stone-background.jpg");
 }
 
-.maxNumberDisplay{
-  display: grid;
-  border: 3px solid blue;
-  color: red;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-items: center;
+.mainContainer {
+    margin: 120px;
+    height: 60vh;
+    border: 3px solid #303133;
+    background-color: #1263e6;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 200px;
+    grid-template-areas: "display display" "button button";
+}
+
+.mainSetContainer {
+    margin: 120px;
+    height: 60vh;
+    border: 3px solid #303133;
+    background-color: #1263e6;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 200px;
+    grid-template-areas: "display display" "button button";
+}
+
+.mainDisplay {
+    padding: 30px;
+    margin: 50px;
+    grid-area: display;
+    font-size: 85px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.mainSetDisplay {
+    margin: 50px;
+    display: grid;
+    grid-area: display;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    font-size: 35px;
+    border: 10px solid black;
+}
+
+.mainSetDisplayInput {
+    height: 30px;
+    text-align: center;
+}
+
+.mainSetDisplayDisabledInput {
+    height: 30px;
+    text-align: center;
+    border: 3px solid red;
+}
+
+.display {
+    display: grid;
+    border: 3px solid blue;
+    color: black;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20px;
+    background-color: #81ecec;
+}
+
+.mainButtons {
+    grid-area: button;
+    display: grid;
+    justify-items: center;
+    height: auto;
+    width: auto;
+    grid-gap: 50px;
+}
+
+.buttons button {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 45px;
+    font-size: 40px;
+    outline: none;
+    box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em #800;
+    font-weight: bold;
+    border-color: #74b9ff;
+    text-decoration: none;
+}
+
+.maxNumberDisplay {
+    display: grid;
+    border: 3px solid blue;
+    color: red;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
 }

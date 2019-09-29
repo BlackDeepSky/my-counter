@@ -6,10 +6,13 @@ class Buttons extends React.Component {
         let disableButton = this.props.numberActive === this.props.maxNumber || this.props.maxNumber < this.props.numberActive || this.props.numberActive > this.props.maxNumber ? true : false;
         return (
             <div className="buttons">
-                    <button disabled={disableButton} onClick={() => {
-                    this.props.addCounter()}}>Add
+                <button disabled={disableButton} onClick={() => {
+                    this.props.addCounter()
+                }}>Add
                 </button>
-                <button onClick={()=>{this.props.restCounter()}}>Reset
+                <button onClick={() => {
+                    this.props.restCounter()
+                }}>Reset
                 </button>
             </div>
         );
