@@ -8,7 +8,9 @@ class Display extends React.Component {
 
         return (
             <div className="mainDisplay">
-                <div className={maxSize}>{this.props.numberActive}</div>
+                <div className={maxSize}>{this.props.numberActive}
+                {this.props.devilNumber && <div className="number666">Welcome to hell!(666)</div>}
+                </div>
             </div>
         );
     }

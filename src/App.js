@@ -11,9 +11,7 @@ class App extends React.Component {
     }
 
     state = {
-        numberActive: null,
-        maxNumber: null,
-        numberReset: 0
+
     };
 
     saveState = () => {
@@ -25,7 +23,8 @@ localStorage.setItem("my-state", stateAsString)
       let state = {
           numberActive: null,
           maxNumber: null,
-          numberReset: 0
+          numberReset: 0,
+          devilNumber: false
       };
       let stateAsString = localStorage.getItem("my-state");
         if (stateAsString !== null) {
@@ -35,10 +34,22 @@ localStorage.setItem("my-state", stateAsString)
     };
 
     setCurrentValue = (startValue, maxValue) => {
-        this.setState({
-            numberActive: startValue,
-            maxNumber: maxValue
-        },this.saveState);
+        this.setState(currentValue => {
+                if (startValue===6 && maxValue === 6) {
+                    return {
+                        numberActive: startValue,
+                        maxNumber: maxValue,
+                        devilNumber: true
+                    }
+                } else {
+                    return {
+                        numberActive: startValue,
+                        maxNumber: maxValue,
+                        devilNumber: false
+                    }
+                }
+            },this.saveState
+        )
     };
 
     addCounter = () => {
@@ -61,6 +72,7 @@ localStorage.setItem("my-state", stateAsString)
             {numberActive: this.state.numberReset}
         )
     };
+
     render = () => {
         return (
             <div className="App">
@@ -70,7 +82,7 @@ localStorage.setItem("my-state", stateAsString)
 
 
                 <div className="mainContainer">
-                    <Display numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
+                    <Display numberActive={this.state.numberActive} maxNumber={this.state.maxNumber} devilNumber={this.state.devilNumber}/>
                     <div className="mainButtons">
                         <Buttons addCounter={this.addCounter} restCounter={this.restCounter}
                                  numberActive={this.state.numberActive} maxNumber={this.state.maxNumber}/>
