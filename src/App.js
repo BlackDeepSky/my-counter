@@ -34,7 +34,7 @@ localStorage.setItem("my-state", stateAsString)
     };
 
     setCurrentValue = (startValue, maxValue) => {
-        this.setState(currentValue => {
+        this.setState(() => {
                 if (startValue===6 && maxValue === 6) {
                     return {
                         numberActive: startValue,
