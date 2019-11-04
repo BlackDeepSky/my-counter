@@ -3,7 +3,7 @@ import './App.css';
 
 class Buttons extends React.Component {
     render = () => {
-        let disableButton = this.props.numberActive === this.props.maxNumber || this.props.maxNumber < this.props.numberActive || this.props.numberActive > this.props.maxNumber ? true : false;
+        let disableButton = this.props.numberActive === this.props.maxNumber || this.props.maxNumber < this.props.numberActive || this.props.numberActive > this.props.maxNumber;
         return (
             <div className="buttons">
                 <button disabled={disableButton} onClick={() => {
