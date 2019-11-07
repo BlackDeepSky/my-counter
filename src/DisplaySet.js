@@ -11,6 +11,7 @@ class DisplaySet extends React.Component {
 
         return (
             <div className="mainSetContainer">
+                <div className="settingIcon" onClick={()=>{this.props.setCurrentDisplay(false)}}><img src="https://img.icons8.com/dusk/64/000000/gear.png"></img></div>
                 <div className="mainSetDisplay">
                     <div className="value">Start value</div>
                     <input className={unsuitableConditions} type="number" onChange={this.props.getCurrentValue}
@@ -23,7 +24,8 @@ class DisplaySet extends React.Component {
                 <div className="mainButtons">
                     <div className="buttons">
                         <button disabled={disableButton} onClick={() => {
-                            this.props.setCurrentValue(this.props.startValue, this.props.maxValue)
+                            this.props.setCurrentValue(this.props.startValue, this.props.maxValue);
+                            this.props.setCurrentDisplay(false)
                         }}>Set
                         </button>
                         <button onClick={() => {

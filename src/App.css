@@ -1,7 +1,8 @@
 .App {
+    position: relative;
     justify-items: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     height: 100vh;
     width: auto;
@@ -9,8 +10,10 @@
 }
 
 .mainContainer {
-    height: 60vh;
-    width: 80%;
+    z-index: 2;
+    position: absolute;
+    height: 500px;
+    width: 450px;
     border: 3px solid #303133;
     background-color: #1263e6;
     border-radius: 20px;
@@ -21,8 +24,10 @@
 }
 
 .mainSetContainer {
-    height: 60vh;
-    width: 80%;
+    z-index: 1;
+    position: absolute;
+    height: 500px;
+    width: 450px;
     border: 3px solid #303133;
     background-color: #1263e6;
     border-radius: 20px;
@@ -90,7 +95,7 @@
 }
 
 .buttons button {
-    width: 15vw;
+    width: 150px;
     height: 100px;
     margin: 0 20px;
     border-radius: 45px;
@@ -101,7 +106,21 @@
     border-color: #74b9ff;
     text-decoration: none;
 }
-
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+.settingIcon{
+    top: 0;
+    position: absolute;
+    right: 0;
+}
+.settingIcon:hover{
+    cursor: pointer;
+    transform: rotateZ(40deg);
+}
 .maxNumberDisplay {
     display: grid;
     border: 3px solid blue;

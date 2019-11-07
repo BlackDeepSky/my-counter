@@ -36,7 +36,6 @@ class App extends React.Component {
     // };
 
     setCurrentValue = (startValue, maxValue) => {
-        debugger
         if (startValue === 6 && maxValue === 6) {
             this.props.setCurrentValue(startValue, maxValue, true)
         }
@@ -54,17 +53,24 @@ class App extends React.Component {
         let newNumberActive = parseInt(e.currentTarget.value);
         this.props.getCurrentValue(newNumberActive);
     };
-
+    setCurrentDisplay = (a) => {
+        this.props.showSetDisplay(a)
+    };
     render = () => {
-        const { numberActive, maxNumber, startValue, maxValue} = this.props;
+        const { numberActive, maxNumber, startValue, maxValue, showDisplay} = this.props;
+
         return (
             <div className="App">
 
-                <DisplaySet numberActive={numberActive} maxNumber={maxNumber}
+                {showDisplay && <DisplaySet numberActive={numberActive} maxNumber={maxNumber}
                             startValue={startValue} maxValue={maxValue}
                             setCurrentValue={this.setCurrentValue} getMaxValue={this.getMaxValue}
-                            getCurrentValue={this.getCurrentValue}/>
-                <div className="mainContainer">
+                            getCurrentValue={this.getCurrentValue} setCurrentDisplay={this.setCurrentDisplay}/>
+                }
+
+                {!showDisplay && <div className="mainContainer">
+
+                    <div className="settingIcon" onClick={() => {this.setCurrentDisplay(true)}}><img src="https://img.icons8.com/dusk/64/000000/gear.png"></img></div>
                     <Display numberActive={numberActive} maxNumber={maxNumber}
                              devilNumber={this.props.devilNumber}/>
                     <div className="mainButtons">
@@ -72,7 +78,7 @@ class App extends React.Component {
                                  numberActive={numberActive} maxNumber={maxNumber}/>
                     </div>
                 </div>
-
+                }
             </div>
         );
     }
@@ -122,6 +128,13 @@ const mapDispatcnToProps = (dispatch) =>{
                 numberActive: startValue,
                 maxNumber: maxValue,
                 obj
+            };
+            dispatch(action)
+        },
+        showSetDisplay: (showDisplay) => {
+            const  action = {
+                type: "SHOW_SET_DISPLAY",
+                showDisplay
             };
             dispatch(action)
         }

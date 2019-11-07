@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 
 const initialState = {
     // counter: []
+    showDisplay: null
 };
 
 
@@ -33,6 +34,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 numberActive: state.numberActive + 1
+        };
+            case 'SHOW_SET_DISPLAY':
+            return {
+                ...state,
+                showDisplay: action.showDisplay
         };
         default: return state
     }
