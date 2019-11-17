@@ -6,7 +6,6 @@ import DisplaySet from './DisplaySet';
 import {connect} from "react-redux";
 
 
-
 class App extends React.Component {
 
     // componentDidMount() {
@@ -38,8 +37,7 @@ class App extends React.Component {
     setCurrentValue = (startValue, maxValue) => {
         if (startValue === 6 && maxValue === 6) {
             this.props.setCurrentValue(startValue, maxValue, true)
-        }
-        else {
+        } else {
             this.props.setCurrentValue(startValue, maxValue, false)
         }
     };
@@ -57,20 +55,23 @@ class App extends React.Component {
         this.props.showSetDisplay(a)
     };
     render = () => {
-        const { numberActive, maxNumber, startValue, maxValue, showDisplay} = this.props;
+        const {numberActive, maxNumber, startValue, maxValue, showDisplay} = this.props;
 
         return (
             <div className="App">
 
                 {showDisplay && <DisplaySet numberActive={numberActive} maxNumber={maxNumber}
-                            startValue={startValue} maxValue={maxValue}
-                            setCurrentValue={this.setCurrentValue} getMaxValue={this.getMaxValue}
-                            getCurrentValue={this.getCurrentValue} setCurrentDisplay={this.setCurrentDisplay}/>
+                                            startValue={startValue} maxValue={maxValue}
+                                            setCurrentValue={this.setCurrentValue} getMaxValue={this.getMaxValue}
+                                            getCurrentValue={this.getCurrentValue}
+                                            setCurrentDisplay={this.setCurrentDisplay}/>
                 }
 
                 {!showDisplay && <div className="mainContainer">
 
-                    <div className="settingIcon" onClick={() => {this.setCurrentDisplay(true)}}><img src="https://img.icons8.com/dusk/64/000000/gear.png"></img></div>
+                    <div className="settingIcon" onClick={() => {
+                        this.setCurrentDisplay(true)
+                    }}><img src="https://img.icons8.com/dusk/64/000000/gear.png"></img></div>
                     <Display numberActive={numberActive} maxNumber={maxNumber}
                              devilNumber={this.props.devilNumber}/>
                     <div className="mainButtons">
@@ -85,30 +86,29 @@ class App extends React.Component {
 }
 
 
-
 const mapStateToProps = (state) => {
     return state;
 };
-const mapDispatcnToProps = (dispatch) =>{
-    return{
+const mapDispatcnToProps = (dispatch) => {
+    return {
         getCurrentValue: (numberActive) => {
-            const  action = {
-                type: "CURRENT_VALUE",
+            const action = {
+                type: "CURRENT_VALUE",///////обьединить методы
                 numberActive,
                 startValue: numberActive
             };
             dispatch(action)
         },
         getMaxValue: (maxValue) => {
-            const  action = {
-                type: "MAX_VALUE",
+            const action = {
+                type: "MAX_VALUE",////////обьединить методы
                 maxValue,
                 maxNumber: maxValue
             };
             dispatch(action)
         },
         addCounterNumber: (numberActive, maxNumber) => {
-            const  action = {
+            const action = {
                 type: "ADD_COUNTER",
                 numberActive,
                 maxNumber
@@ -116,14 +116,14 @@ const mapDispatcnToProps = (dispatch) =>{
             dispatch(action)
         },
         resetNumber: (numberReset) => {
-            const  action = {
+            const action = {
                 type: "RESET_NUMBER",
                 numberReset
             };
             dispatch(action)
         },
         setCurrentValue: (startValue, maxValue, obj) => {
-            const  action = {
+            const action = {
                 type: "SET_CURRENT_VALUE",
                 numberActive: startValue,
                 maxNumber: maxValue,
@@ -132,7 +132,7 @@ const mapDispatcnToProps = (dispatch) =>{
             dispatch(action)
         },
         showSetDisplay: (showDisplay) => {
-            const  action = {
+            const action = {
                 type: "SHOW_SET_DISPLAY",
                 showDisplay
             };
@@ -143,6 +143,6 @@ const mapDispatcnToProps = (dispatch) =>{
 };
 
 
-const ConnectedApp = connect(mapStateToProps,mapDispatcnToProps)(App);
+const ConnectedApp = connect(mapStateToProps, mapDispatcnToProps)(App);
 
 export default ConnectedApp;

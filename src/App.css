@@ -6,14 +6,18 @@
     align-items: center;
     height: 100vh;
     width: auto;
-    background-image: url("https://st3.depositphotos.com/1641224/15330/i/1600/depositphotos_153304044-stock-photo-grunge-black-wall-stone-background.jpg");
+    background-image: url("https://marketingkit7.ru/wp-content/uploads/2018/09/delovoj-fon-dlya-prezentacii-image-017.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
 }
 
 .mainContainer {
     z-index: 2;
     position: absolute;
-    height: 500px;
-    width: 450px;
+    height: 400px;
+    width: 320px;
     border: 3px solid #303133;
     background-color: #1263e6;
     border-radius: 20px;
@@ -21,13 +25,17 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 200px;
     grid-template-areas: "display display" "button button";
+    box-shadow: 11px 1px 45px rgba(255, 6, 6, 0.8),
+                -23px 0 20px -15px rgba(33, 200, 184, 0.8),
+                23px 0 20px -23px rgba(50, 201, 98, 0.8),
+                -47px 0 40px rgba(255, 0, 0, 0.5) inset;
 }
 
 .mainSetContainer {
     z-index: 1;
     position: absolute;
-    height: 500px;
-    width: 450px;
+    height: 400px;
+    width: 320px;
     border: 3px solid #303133;
     background-color: #1263e6;
     border-radius: 20px;
@@ -35,11 +43,14 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 200px;
     grid-template-areas: "display display" "button button";
+    box-shadow: 11px 1px 45px rgba(255, 6, 6, 0.8),
+    -23px 0 20px -15px rgba(33, 200, 184, 0.8),
+    23px 0 20px -23px rgba(50, 201, 98, 0.8),
+    -47px 0 40px rgba(255, 0, 0, 0.5) inset;
 }
 
 .mainDisplay {
     padding: 30px;
-    margin: 50px;
     grid-area: display;
     font-size: 85px;
     text-align: center;
@@ -48,20 +59,22 @@
 }
 
 .mainSetDisplay {
-    margin: 30px;
     display: grid;
     grid-area: display;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-items: center;
     font-size: 35px;
+    border-radius: 20px;
     border: 10px solid black;
 }
 
 .mainSetDisplayInput {
-    height: 30px;
+    height: 40px;
+    width: 190px;
     text-align: center;
+    font-size: 30px;
 }
 
 .mainSetDisplayDisabledInput {
@@ -71,7 +84,8 @@
 }
 .value {
     text-align: center;
-    font-size: 35px;
+    font-size: 30px;
+    font-family: 'Dosis', sans-serif;
 }
 .display {
     display: grid;
@@ -95,11 +109,11 @@
 }
 
 .buttons button {
-    width: 150px;
+    width: 120px;
     height: 100px;
     margin: 0 20px;
     border-radius: 45px;
-    font-size: 40px;
+    font-size: 35px;
     outline: none;
     box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em #800;
     font-weight: bold;
@@ -113,13 +127,21 @@
     align-items: center;
 }
 .settingIcon{
-    top: 0;
+    top: -30px;
     position: absolute;
-    right: 0;
+    right: 25px;
+    width: 20px;
+    height: 20px;
 }
 .settingIcon:hover{
     cursor: pointer;
-    transform: rotateZ(40deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -moz-transition: all 1s 0.1s ease-in;
+    -o-transition: all 1s 0.1s ease-in;
+    -webkit-transition: all 1s 0.1s ease-in;
+
 }
 .maxNumberDisplay {
     display: grid;
