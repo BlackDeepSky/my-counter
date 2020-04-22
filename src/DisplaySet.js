@@ -11,7 +11,7 @@ class DisplaySet extends React.Component {
 
         return (
             <div className="mainSetContainer">
-                <div className="settingIcon" onClick={()=>{this.props.setCurrentDisplay(false)}}><img src="https://img.icons8.com/dusk/64/000000/gear.png"></img></div>
+                <div className="settingIcon" onClick={()=>{this.props.setCurrentDisplay(false)}}><img src="https://img.icons8.com/dusk/64/000000/gear.png"/></div>
                 <div className="mainSetDisplay">
                     <div className="value">Start value</div>
                     <input className={unsuitableConditions} type="number" onChange={this.props.getCurrentValue}

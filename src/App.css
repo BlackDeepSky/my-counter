@@ -6,7 +6,7 @@
     align-items: center;
     height: 100vh;
     width: auto;
-    background-image: url("https://marketingkit7.ru/wp-content/uploads/2018/09/delovoj-fon-dlya-prezentacii-image-017.png");
+    background-image: url("img/fon.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -135,12 +135,12 @@
 }
 .settingIcon:hover{
     cursor: pointer;
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -moz-transition: all 1s 0.1s ease-in;
-    -o-transition: all 1s 0.1s ease-in;
-    -webkit-transition: all 1s 0.1s ease-in;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    -moz-transition: all .5s 0.1s ease-in;
+    -o-transition: all .5s 0.1s ease-in;
+    -webkit-transition: all .5s 0.1s ease-in;
 
 }
 .maxNumberDisplay {
